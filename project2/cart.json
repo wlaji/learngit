@@ -1,0 +1,18 @@
+[
+  {
+    "isSelected": true,
+    "productCover": "https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=1c95ea13ddca7bcb6976cf7ddf600006/b7003af33a87e9505bb120bc1a385343faf2b4b8.jpg",
+    "productName": "js高级程序设计",
+    "productInfo": "颜色：Js学习",
+    "productPrice": 57.8,
+    "productCount": 3
+  },
+  {
+    "isSelected": true,
+    "productCover": "https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=1c95ea13ddca7bcb6976cf7ddf600006/b7003af33a87e9505bb120bc1a385343faf2b4b8.jpg",
+    "productName": "js程序设计",
+    "productInfo": "颜色：Js学习",
+    "productPrice": 57.8,
+    "productCount": 3
+  }
+]

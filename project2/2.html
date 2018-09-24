@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
@@ -42,48 +42,48 @@
 <script src="node_modules/axios/dist/axios.js"></script>
 <script>
   let vm = new Vue({
-    el: '#app',
+    el:'#app',
     data: {
-      products: [],
-
+      products:[],
+    },
+    filters:{
+      toFixed(input,params1){
+        return '￥'+input.toFixed(params1);
+      }
     },
     computed: {
-      checkAll: {
-        get() {
-          return this.products.every(p => p.isSelected);
+      checkAll:{
+        get(){
+          return this.products.every(p=>p.isSelected);
         },
-        set(val) {
-          this.products.forEach(p => p.isSelected = val);
+        set(val){
+          this.products.forEach(p=>p.isSelected=val);
         }
       },
-      sum: {
-        get() {
-          return this.products.reduce((prev, next) => {
-            if (!next.isSelected) {
-              return prev;
-            }
-            return prev + next.productPrice * next.productCount;
-          }, 0)
-        }
-
-      },
+      sum(){
+        return this.products.reduce((prev,next)=>{
+          if(!next.isSelected){
+            return prev;
+          }
+          return prev+next.productPrice*next.productCount;
+        },0)
+      }
     },
-    filters: {
-      toFixed(input, params1) {
-        return "￥" + input.toFixed(params1);
+    methods: {
+      getData() {
+        axios.get('./cart.json').then(res => {
+          this.products = res.data;
+          console.log(this.products)
+        }, err => {
+          console.log(err);
+        })
+      },
+      remove(p){
+        this.products=this.products.filter(item=>item!==p)
       }
     },
     created() {
-      axios.get('./cart.json').then(res => {
-        this.products = res.data;
-      }, err => {
-        console.log(err);
-      });
-    },
-    methods: {
-      remove(p) {
-        this.products = this.products.filter(item => item !== p);
-      }
+      this.getData();
     }
   })
 </script>
